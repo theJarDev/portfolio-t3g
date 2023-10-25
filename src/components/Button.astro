@@ -1,6 +1,21 @@
 ---
+interface Props {
+    background?:string,
+    radius?:string,
+    border?:string
+}
+
+const { background = '#FF7B47', radius = '0.25rem', border = '#FF7B47'} = Astro.props;
 ---
 
-<a class="p-8">
+<a class="p-4 btn text-white text-center font-bold text-sm">
     <slot />
 </a>
+
+<style define:vars={{background, radius, border}}>
+    .btn {
+        background-color: var(--background);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+    }
+</style>
